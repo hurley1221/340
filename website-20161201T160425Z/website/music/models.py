@@ -8,19 +8,25 @@ class Modules(models.Model):
     def __str__(self):
         return self.ModuleCode + ' ' + self.ModuleTitle + ' ' + self.ModuleTutor
 
-
 class Student(models.Model):
     StudentID = models.IntegerField()
     StudentFirstName  = models.CharField(max_length=20)
     StudentLastName  = models.CharField(max_length=20)
     Address = models.CharField(max_length=100)
     Postcode = models.CharField(max_length=7)
-	
+
+    def __str__(self):
+        return self.StudentID + ' ' + self.StudentFirstName + ' ' + self.StudentLastName + ' ' + self.Address + ' ' + self.Postcode 
+
 class ModuleMarks(models.Model):
     StudentID = models.ForeignKey('Student', on_delete=models.CASCADE)
     ModuleCode = models.ForeignKey('Modules', on_delete=models.CASCADE)
     ModuleMark = models.IntegerField()
     SubmittedDate = models.DateTimeField()
+	
+    def __str__(self):
+        return self.StudentID + ' ' + self.ModuleCode + ' ' + self.ModuleMark + ' ' + self.SubmittedDate 
+
 	
 class Coursework(models.Model):
     ModuleCode = models.ForeignKey('Modules', on_delete=models.CASCADE)
@@ -29,6 +35,9 @@ class Coursework(models.Model):
     AssessmentType = models.CharField(max_length=50)
     IssueDate = models.DateField()
     DueDateTime = models.DateTimeField()
+	
+    def __str__(self):
+        return self.ModuleCode + ' ' + self.CourseworkNo + ' ' + self.CourseworkTitle + ' ' + self.AssessmentType + ' ' + self.IssueDate + ' ' + self.DueDateTime 
 	
 class Login(models.Model):
     UserName = models.CharField(max_length=50)
