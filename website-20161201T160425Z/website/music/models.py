@@ -22,6 +22,8 @@ class ModuleMarks(models.Model):
     ModuleMark = models.IntegerField()
     SubmittedDate = models.DateTimeField()
 	
+    def __str__(self):
+	return str(self.StudentID) + ' ' + str(self.ModuleCode) + ' ' + str(self.ModuleMark) + ' ' + str(self.SubmittedDate)
 	
 class Coursework(models.Model):
     ModuleCode = models.ForeignKey('Modules', on_delete=models.CASCADE)
