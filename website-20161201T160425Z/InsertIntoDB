@@ -1,0 +1,6 @@
+python manage.py shell
+
+from info.models import Modules, Student, ModuleMarks, Coursework
+a = Modules(ModuleCode = "340CT", ModuleTitle = "Software", ModuleTutor = "YL")
+a.save()
+a.ModuleCode
