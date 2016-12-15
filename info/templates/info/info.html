@@ -1,0 +1,22 @@
+<h1>                                            <!--define heading-->
+View Submission Information                     <!--Page Heading-->
+</h1>                                           <!--close headin-->
+<body>                                          <!--define body-->
+<table border="1">                              <!--define table, set border width to 1-->
+    <tr>                                        <!--define row in table-->
+    <th>Student ID</th>                         <!--define header cell-->
+    <th>Module Code</th>                        <!--define header cell-->
+    <th>Module Mark</th>                        <!--define header cell-->
+    <th>Submission Date</th>                    <!--define header cell-->
+    </tr>                                       <!--close row in table-->
+    {% for Marks in all_marks %}                <!--Python for loop, will loop through the marks table-->
+        <tr>                                    <!--define row in table-->
+        <td>{{ Marks.StudentID }}</td>          <!--define cell containing StudentID-->
+        <td>{{ Marks.ModuleCode }}</td>         <!--define cell containing ModuleCode-->
+        <td>{{ Marks.ModuleMark }}</td>         <!--define cell containing ModuleMark-->
+        <td>{{ Marks.SubmittedDate }}</td>      <!--define cell containing SubmittedDate-->
+        </tr>                                   <!--close row in table-->
+    {% endfor %}                                <!--end for loop-->
+</table>                                        <!--close table-->
+</body>                                         <!--close body-->
+
